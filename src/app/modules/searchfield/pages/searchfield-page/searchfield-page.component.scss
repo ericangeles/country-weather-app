@@ -1,0 +1,24 @@
+:host .toast {
+  margin: 0.5em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1200;
+}
+.container-fluid {
+  &.padding-top {
+    padding-top: 20px;
+  }
+}
+
+.spinner-container {
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: 9999;
+
+  .spinner-border {
+    position: fixed;
+    top: 30%;
+  }
+}

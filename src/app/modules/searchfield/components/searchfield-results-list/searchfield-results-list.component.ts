@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { 
+  Component,
+  Input
+} from '@angular/core';
+import { CountryWeather } from '@modules/searchfield/CountryWeather';
 
 @Component({
   selector: 'app-searchfield-results-list',
@@ -6,5 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./searchfield-results-list.component.scss']
 })
 export class SearchfieldResultsListComponent {
-  
+  @Input() searchResults: CountryWeather[];
+
+  constructor() {}
 }

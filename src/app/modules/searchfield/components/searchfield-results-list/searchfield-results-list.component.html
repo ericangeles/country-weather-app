@@ -1,0 +1,27 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3">
+  <div class="col mb-4 d-flex align-items-stretch" *ngFor="let result of searchResults">
+    <div class="card">
+      <img src="{{result.flag}}" class="card-img-top" alt="flag" />
+      <div class="card-body">
+        <h5 class="card-title font-weight-bold">{{ result.name }}</h5>
+        <p class="card-text small">{{ result.capital }} | {{ result.region }}</p>
+        <p class="card-text small"> <span class="font-weight-bold">Population:</span> {{ result.population }}</p>
+        <hr />
+        <h6 class="card-title font-weight-bold d-inline-block">Weather Condition</h6>
+        <div *ngIf="result.weather.success !== false; then showData else placeholderData"></div>
+        <ng-template #showData>
+            <img src="{{result.weather.current.weather_icons}}" class="pull-right" alt="weather icon">
+            <p class="card-text small">Description: {{ result.weather.current.weather_descriptions ? result.weather.current.weather_descriptions : '' }}</p>
+            <p class="card-text small">Temperature: {{ result.weather.current.temperature ? result.weather.current.temperature : '' }} °</p>
+            <p class="card-text small">Humidity: {{ result.weather.current.humidity ? result.weather.current.humidity : '' }} | Weather code: {{ result.weather.current.weather_code ? result.weather.current.weather_code : result.weather.current.weather_code }}</p>
+            <p class="card-text small">Latitude: {{ result.weather.location.lat ? result.weather.location.lat : '' }}, Longtitude: {{ result.weather.location.lon ? result.weather.location.lon : '' }}</p>
+            <p>{{result.weather.success === false | json}}</p>
+        </ng-template>
+        <ng-template #placeholderData>
+          <p class="small">Code: {{ result.weather.error.code }}</p>
+          <p class="small">Message: {{ result.weather.error.info | json }}</p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>

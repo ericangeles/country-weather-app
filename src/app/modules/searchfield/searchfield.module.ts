@@ -6,12 +6,14 @@ import { SearchfieldInputComponent } from './components/searchfield-input/search
 import { SearchfieldResultsListComponent } from './components/searchfield-results-list/searchfield-results-list.component'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { SearchfieldRoutingModule } from '@modules/searchfield/searchfield-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    HttpClientModule,
     NgbModule,
     SearchfieldRoutingModule
   ],

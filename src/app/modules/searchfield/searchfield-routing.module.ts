@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SearchfieldPageComponent } from '@modules/searchfield/pages/searchfield-page/searchfield-page.component';
+import { SearchfieldResolverService } from '@modules/searchfield/searchfield-resolver.service';
 
 const routes: Routes = [
   {
@@ -12,8 +13,11 @@ const routes: Routes = [
         component: SearchfieldPageComponent
       },
       {
-        path: 'country:Query',
-        component: SearchfieldPageComponent
+        path: ':countryQuery',
+        component: SearchfieldPageComponent,
+        resolve: {
+          searchResults: SearchfieldResolverService
+        }
       }
     ]
   }
@@ -25,6 +29,9 @@ const routes: Routes = [
   ],
   exports: [
     RouterModule
+  ],
+  providers: [
+    SearchfieldResolverService
   ]
 })
 export class SearchfieldRoutingModule {}

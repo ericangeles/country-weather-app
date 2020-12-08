@@ -1,0 +1,22 @@
+
+<form #searchForm="ngForm">
+  <div class="form-group input-group has-search">
+    <span class="fa fa-search form-control-feedback"></span>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Search for a country"
+      [(ngModel)]="searchCountryQuery"
+      name="searchCountryQuery"
+      />
+    <div class="input-group-append">
+      <button
+        class="btn btn-outline-secondary"
+        type="submit"
+        [disabled]="!searchForm.form.valid"
+        [routerLink]="['/searchfield', searchCountryQuery]"
+        >Go</button>
+    </div>
+  </div>
+</form>
+<hr>

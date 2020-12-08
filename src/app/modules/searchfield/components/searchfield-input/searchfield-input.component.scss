@@ -1,0 +1,21 @@
+:host {
+  width: 100%;
+}
+
+.has-search {
+  .form-control {
+    padding-left: 2.375rem;
+  }
+
+  .form-control-feedback {
+    color: #aaa;
+    display: block;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    width: 2.375rem;
+    z-index: 999;
+  }
+}

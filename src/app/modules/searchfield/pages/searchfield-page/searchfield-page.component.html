@@ -1,0 +1,38 @@
+<div class="text-center spinner-container" [hidden]="!spinning">
+  <div class="spinner-border text-primary" role="status" *ngIf="spinning">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<div class="container-fluid padding-top">
+  <div class="col-md-6 offset-md-3">
+    <app-searchfield-input [query]="query"></app-searchfield-input>
+  </div>
+</div>
+
+<ngb-toast
+  *ngIf="showToast"
+  header="Message" 
+  [autohide]="true"
+  [delay]="4000"
+  (hidden)="close()">
+    Try again searching a valid country.
+</ngb-toast>
+
+<div class="container" *ngIf="searchResults">
+    <app-searchfield-results-list [searchResults]="searchResults"></app-searchfield-results-list>
+</div>
+
+<!-- Empty Message -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="jumbotron" *ngIf="emptyMessage">
+        <h1 class="display-4 font-weight-bold">Search Results</h1>
+        <p class="lead">COUGH. Sorry.</p>
+        <hr class="mb-4">
+        <p>You just performed an empty search so we had nothing to show you. Please try again.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -2,6 +2,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.3.
 
+## Setting Environment Variable
+
+Setting up an environment variable to make the application secured when using api token. Created a script called `setenv.ts` under the root folder inside of `scripts` folder. All the environment information will be added to `.env` file.
+
+We'll use a lightweight packaged named [dotenv](https://www.npmjs.com/package/dotenv).
+
+Run `npm run start`
+
+This script will run the `setenv.ts` to generate the `.env` file to `environment.ts`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
